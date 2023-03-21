@@ -2,6 +2,7 @@
 import BlogPost from "./components/BlogPost.vue";
 import ButtonCounter from "./components/ButtonCounter.vue";
 import CustomInput from "./components/CustomInput.vue";
+import SlotButton from "./components/SlotButton.vue";
 
 const className = "class-variable";
 const url = "https://www.naver.com";
@@ -12,6 +13,7 @@ export default {
   components: {
     ButtonCounter,
     BlogPost,
+    SlotButton,
   },
   data() {
     return {
@@ -146,6 +148,12 @@ export default {
         v-model:first-name="firstName"
         v-model:last-name="lastName"
       />
+
+      <!-- slot자리에 들어가는 것 -->
+      <SlotButton>
+        <p>Button</p>
+        <template #main="{ message }"> {{ message }} </template>
+      </SlotButton>
     </div>
   </div>
 </template>
